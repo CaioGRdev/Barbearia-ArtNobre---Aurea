@@ -8,20 +8,20 @@ export function BarberTeam() {
   const team = [
     {
       id: 1,
-      name: 'Ricardo Mendes',
-      role: 'MASTER BARBER',
+      name: 'Jesus Riter',
+      role: 'Dono',
       image: barber1,
     },
     {
       id: 2,
-      name: 'André Costa',
-      role: 'BARBER ESPECIALISTA',
+      name: 'Greyson',
+      role: 'Barbeiro',
       image: barber2,
     },
     {
       id: 3,
-      name: 'Miguel Santos',
-      role: 'BARBER & COLORISTA',
+      name: 'Fernando',
+      role: 'Barbeiro',
       image: barber3,
     },
   ];

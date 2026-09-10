@@ -1021,34 +1021,33 @@
     text-align: center;
   }
 }
-/* Container que encapsula o carrossel no mesmo espaço da imagem antiga */
+/* Fixa o tamanho do container para não empurrar nada abaixo */
 .about-carousel-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 400px; /* Garante altura enquanto as imagens carregam */
+  height: 480px; /* Defina a altura fixa que preferir para a foto */
   overflow: hidden;
   border-radius: 2px;
 }
 
-/* Esmaecimento (fade) suave entre as fotos */
+/* Força TODAS as imagens a ficarem absolutamente posicionadas e recortadas no mesmo tamanho */
 .about-carousel-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Recorta a imagem sem distorcer para preencher a caixa */
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
 }
 
+/* Aponta apenas a opacidade para a imagem ativa, mantendo o posicionamento absoluto */
 .about-carousel-img.active {
   opacity: 1;
-  position: relative;
 }
 
-/* Setas discretas que combinam com o tom escuro/dourado do site */
+/* Setas discretas mantidas */
 .about-arrow {
   position: absolute;
   top: 50%;
