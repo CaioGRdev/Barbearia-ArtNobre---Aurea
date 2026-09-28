@@ -1,5 +1,5 @@
 import React from 'react';
-// Importe fotos reais da sua pasta assets ou use placeholders
+import { Link } from 'react-router-dom';
 import service1 from '../assets/hero-bg.webp'; 
 import service2 from '../assets/hero-bg.webp';
 import service3 from '../assets/hero-bg.webp';
@@ -33,18 +33,17 @@ export function BarberServices() {
     <section className="services-section" id="precos">
       <div className="services-container">
         
-        {/* Cabeçalho da Seção */}
         <div className="services-header">
           <div>
             <span className="section-tagline">OS NOSSOS SERVIÇOS</span>
             <h2 className="section-title">O que fazemos</h2>
           </div>
-          <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="btn-secondary">
+          {/* Troca aqui: redireciona para a tabela completa em /precos */}
+          <Link to="/precos" className="btn-secondary">
             VER TODOS OS PREÇOS &rarr;
-          </a>
+          </Link>
         </div>
 
-        {/* Grid de Cards dos Serviços */}
         <div className="services-grid">
           {services.map((service) => (
             <div className="service-card" key={service.id}>
