@@ -2,10 +2,12 @@
 import React from "react";
 
 // SUBSTITUA OS NOMES ABAIXO PELOS ARQUIVOS REAIS DA SUA PASTA ASSETS:
-import heroImg from "../assets/hero.png"; 
-import detailsImg from "../assets/hero.png";
-import corte1 from "../assets/hero.png";
-import corte2 from "../assets/hero.png";
+import playgroundImg from "../assets/playground.webp";
+import locationImg from "../assets/location.webp";
+import spaceImg from "../assets/space.webp";
+import detailsImg from "../assets/logo.webp";
+import fadeImg from "../assets/fade.webp";
+import beardStylingImg from "../assets/fade_e_barba.webp";
 
 export function SpacePage() {
   return (
@@ -24,15 +26,15 @@ export function SpacePage() {
         {/* Grid Superior de 3 fotos estilo banner */}
         <div className="space-top-grid">
           <div className="top-grid-item">
-            <img src={heroImg} alt="Boutique e Lounge" />
-            <span className="grid-label">BOUTIQUE & WHISKY LOUNGE</span>
+            <img src={playgroundImg} alt="Sala de Jogos" />
+            <span className="grid-label">SALA DE JOGOS</span>
           </div>
           <div className="top-grid-item">
-            <img src={heroImg} alt="Localização Espaço" />
+            <img src={locationImg} alt="Localização Espaço" />
             <span className="grid-label">RUA TEN. COL. CARDOSO, 703</span>
           </div>
           <div className="top-grid-item">
-            <img src={heroImg} alt="Ambiente Climatizado" />
+            <img src={spaceImg} alt="Ambiente Climatizado" />
             <span className="grid-label">AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA</span>
           </div>
         </div>
@@ -99,7 +101,7 @@ export function SpacePage() {
 
         <div className="cuts-grid">
           <div className="cut-card">
-            <img src={corte1} alt="Fade Alinhado" />
+            <img src={fadeImg} alt="Fade Alinhado" />
             <div className="cut-info">
               <span className="cut-tag">ACABAMENTO & VISAGISMO</span>
               <h3>Fade Alinhado & Navalha Clássica</h3>
@@ -108,7 +110,7 @@ export function SpacePage() {
           </div>
 
           <div className="cut-card">
-            <img src={corte2} alt="Crop Texturizado" />
+            <img src={beardStylingImg} alt="Design de Barba" />
             <div className="cut-info">
               <span className="cut-tag">DESIGN DE BARBA & TEXTURA</span>
               <h3>Crop Texturizado & Beard Shaping</h3>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 // Importe as suas imagens do carrossel na pasta assets
-import img1 from '../assets/chairs_barber.webp'; 
-import img2 from '../assets/logo.webp'; // Substitua pelos nomes reais dos seus arquivos
-import img3 from '../assets/logo.webp';
+import img1 from '../assets/logo.webp'; 
+import img2 from '../assets/chairs_barber.webp';
+import img3 from '../assets/barber.webp';
 
 // Componente simples para animar o número subindo (MANTIDO INTACTO)
 function Counter({ end, duration = 2000, suffix = "" }) {

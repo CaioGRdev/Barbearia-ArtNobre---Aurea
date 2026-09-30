@@ -26,7 +26,7 @@ export function BarberShopHero() {
         </div>
 
         <div className="scroll-indicator">
-          <span>SCROLL</span>
+          <span>DESÇA E CONHEÇA</span>
           <div className="scroll-line"></div>
         </div>
       </div>

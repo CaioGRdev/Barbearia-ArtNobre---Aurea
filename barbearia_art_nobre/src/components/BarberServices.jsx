@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import service1 from '../assets/hero-bg.webp'; 
-import service2 from '../assets/hero-bg.webp';
-import service3 from '../assets/hero-bg.webp';
+import service1 from '../assets/fade.webp'; 
+import service2 from '../assets/corte_maquina.webp';
+import service3 from '../assets/fade_e_barba.webp';
 
 export function BarberServices() {
   const services = [

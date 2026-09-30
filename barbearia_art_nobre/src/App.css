@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.main-layout > .main-footer {
+.main-layout>.main-footer {
   flex-shrink: 0;
 }
 
@@ -18,7 +18,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100; /* Garante que o header fique sobre a hero */
+  z-index: 100;
+  /* Garante que o header fique sobre a hero */
 }
 
 .topbar {
@@ -99,7 +100,8 @@
   text-decoration: none;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: #ffffff;
   border-bottom: 1px solid var(--gold-color);
   padding-bottom: 3px;
@@ -129,10 +131,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Substitua pela imagem real .webp se já tiver */
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
-              url('./assets/hero-bg.webp') center center / cover no-repeat;
-  padding: 120px 20px 40px 20px; /* Padding superior para não grudar no header */
+  background: linear-gradient(rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.98)),
+    url('./assets/hero_logo.webp') center center / cover no-repeat;
+  padding: 120px 20px 40px 20px;
+  /* Padding superior para não grudar no header */
   box-sizing: border-box;
 }
 
@@ -155,7 +157,8 @@
 .hero-title {
   display: flex;
   flex-direction: column;
-  font-size: 4rem; /* Ajuste para o tamanho do Figma */
+  font-size: 4rem;
+  /* Ajuste para o tamanho do Figma */
   letter-spacing: 6px;
   font-weight: 400;
   line-height: 1.1;
@@ -695,7 +698,8 @@
     width: 100%;
   }
 
-  .btn-whatsapp, .btn-instagram {
+  .btn-whatsapp,
+  .btn-instagram {
     justify-content: center;
     width: 100%;
   }
@@ -890,7 +894,8 @@
   font-family: 'Times New Roman', Georgia, serif;
   font-size: 1.6rem;
   letter-spacing: 4px;
-  color: #c5a059; /* Dourado da referência */
+  color: #c5a059;
+  /* Dourado da referência */
   margin-bottom: 2px;
   font-weight: 400;
 }
@@ -1027,6 +1032,7 @@
   .footer-container {
     grid-template-columns: 1fr;
   }
+
   .footer-bottom-bar {
     flex-direction: column;
     gap: 10px;
@@ -1038,7 +1044,8 @@
 .about-carousel-container {
   position: relative;
   width: 100%;
-  height: 480px; /* Defina a altura fixa que preferir para a foto */
+  height: 480px;
+  /* Defina a altura fixa que preferir para a foto */
   overflow: hidden;
   border-radius: 2px;
 }
@@ -1050,7 +1057,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Recorta a imagem sem distorcer para preencher a caixa */
+  object-fit: cover;
+  /* Recorta a imagem sem distorcer para preencher a caixa */
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
 }
@@ -1103,8 +1111,10 @@
 .full-prices-page {
   background-color: #080808;
   color: #e0e0e0;
-  padding-top: 0px; /* Garante espaço para o header fixo */
-  padding-bottom: 80px; /* Evita que o grid encoste no footer */
+  padding-top: 0px;
+  /* Garante espaço para o header fixo */
+  padding-bottom: 80px;
+  /* Evita que o grid encoste no footer */
   min-height: 100vh;
   width: 100%;
   position: relative;
@@ -1138,13 +1148,15 @@
 .services-header-bg {
   position: relative;
   width: 100%;
-  min-height: 420px; /* Define uma altura mínima bem maior para a imagem */
+  min-height: 420px;
+  /* Define uma altura mínima bem maior para a imagem */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 20px 60px 20px; /* Aumenta o topo do banner interno */
+  padding: 120px 20px 60px 20px;
+  /* Aumenta o topo do banner interno */
   background: linear-gradient(to bottom, rgba(8, 8, 8, 0.4), rgba(8, 8, 8, 0.95)),
-              url('./assets/precos_services.webp') center center / cover no-repeat;
+    url('./assets/precos_services.webp') center center / cover no-repeat;
   border-bottom: 1px solid rgba(197, 160, 89, 0.2);
   margin-bottom: 40px;
   text-align: center;
@@ -1274,7 +1286,8 @@
 .space-page-container {
   background-color: #080808;
   color: #e0e0e0;
-  padding: 120px 8% 80px 8%; /* Espaço superior para compensar o seu header */
+  padding: 120px 8% 80px 8%;
+  /* Espaço superior para compensar o seu header */
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   box-sizing: border-box;
 }
@@ -1290,13 +1303,15 @@
   font-weight: 600;
 }
 
-.space-hero-title, .space-section-title {
+.space-hero-title,
+.space-section-title {
   color: #ffffff;
   font-weight: 400;
   line-height: 1.2;
 }
 
-.space-hero-title em, .space-section-title em {
+.space-hero-title em,
+.space-section-title em {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   color: #d4af37;
@@ -1353,7 +1368,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
   padding: 20px 15px 12px 15px;
   font-size: 0.65rem;
   letter-spacing: 2px;
@@ -1595,9 +1610,13 @@
 
 /* RESPONSIVIDADE */
 @media (max-width: 900px) {
-  .space-top-grid, .space-details-section, .cuts-grid {
+
+  .space-top-grid,
+  .space-details-section,
+  .cuts-grid {
     grid-template-columns: 1fr;
   }
+
   .cuts-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1609,7 +1628,8 @@
 .space-page-container {
   background-color: #080808 !important;
   color: #e0e0e0;
-  padding-top: 140px; /* Garante que o conteúdo fique ABAIXO do menu fixo do topo */
+  padding-top: 140px;
+  /* Garante que o conteúdo fique ABAIXO do menu fixo do topo */
   padding-bottom: 80px;
   padding-left: 8%;
   padding-right: 8%;
