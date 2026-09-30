@@ -1,5 +1,4 @@
 // src/pages/PricesPage.jsx
-import React from "react";
 
 export function PricesPage() {
   return (

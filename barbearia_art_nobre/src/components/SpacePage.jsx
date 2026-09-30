@@ -1,5 +1,4 @@
 // src/pages/SpacePage.jsx
-import React from "react";
 
 // SUBSTITUA OS NOMES ABAIXO PELOS ARQUIVOS REAIS DA SUA PASTA ASSETS:
 import playgroundImg from "../assets/playground.webp";

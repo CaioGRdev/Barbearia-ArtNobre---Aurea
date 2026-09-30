@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import logoWebp from '../assets/logo-nobg.webp'; // Import da sua imagem em webp
 

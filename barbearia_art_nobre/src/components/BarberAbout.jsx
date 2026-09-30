@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Importe as suas imagens do carrossel na pasta assets
 import img1 from '../assets/logo.webp'; 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaWhatsapp, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logoImg from '../assets/logo-nobg.webp'; 

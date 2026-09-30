@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import service1 from '../assets/fade.webp'; 
 import service2 from '../assets/corte_maquina.webp';
