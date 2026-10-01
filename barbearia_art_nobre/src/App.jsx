@@ -10,7 +10,7 @@ import BarberFooter from './components/BarberFooter';
 import { SpacePage } from './components/SpacePage';
 
 // A nova página que contém a tabela de preços completa
-import { PricesPage } from './components/PricesPage';
+import { PricesPage } from './pages/PricesPage';
 
 import './App.css';
 

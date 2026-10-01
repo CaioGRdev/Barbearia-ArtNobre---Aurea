@@ -875,7 +875,7 @@
 .main-footer {
   background-color: #050505;
   padding: 80px 40px 30px 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  /* border-top: 1px solid rgba(255, 255, 255, 0.05); */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   flex-shrink: 0;
 }
@@ -1113,13 +1113,13 @@
   color: #e0e0e0;
   padding-top: 0px;
   /* Garante espaço para o header fixo */
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   /* Evita que o grid encoste no footer */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
-  position: relative;
+  /* position: relative;
   box-sizing: border-box;
-  clear: both;
+  clear: both; */
 }
 
 /* Botão Flutuante Ajustado */
@@ -1193,49 +1193,16 @@
 }
 
 /* Grid das Categorias de Preço */
-.prices-container-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 25px;
+/* .prices-container-wrapper {
+  
 }
 
 .services-grid-page {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-}
-
-.service-category {
-  background: #111111;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-  padding: 30px;
-  height: fit-content;
-}
-
-.category-title {
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-  padding-bottom: 12px;
-  margin-top: 0;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-}
-
-.category-icon {
-  color: #c5a059;
-}
-
-.service-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  border: 2px dashed pink;
+} */
 
 .service-item {
   display: flex;
@@ -1254,25 +1221,6 @@
   flex-direction: column;
   gap: 4px;
   padding-right: 15px;
-}
-
-.service-name {
-  font-size: 0.9rem;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.service-desc {
-  font-size: 0.75rem;
-  color: #888888;
-  line-height: 1.4;
-}
-
-.service-price {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #c5a059;
-  white-space: nowrap;
 }
 
 @media (max-width: 850px) {
