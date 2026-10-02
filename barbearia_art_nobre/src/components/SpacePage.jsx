@@ -5,8 +5,11 @@ import playgroundImg from "../assets/playground.webp";
 import locationImg from "../assets/location.webp";
 import spaceImg from "../assets/space.webp";
 import detailsImg from "../assets/logo.webp";
-import fadeImg from "../assets/fade.webp";
-import beardStylingImg from "../assets/fade_e_barba.webp";
+// import fadeImg from "../assets/fade.webp";
+// import beardStylingImg from "../assets/fade_e_barba.webp";
+
+import {cuts} from "../data/spacePage.js"
+import Service from "./Service";
 
 export function SpacePage() {
   return (
@@ -99,23 +102,13 @@ export function SpacePage() {
         </div>
 
         <div className="cuts-grid">
-          <div className="cut-card">
-            <img src={fadeImg} alt="Fade Alinhado" />
-            <div className="cut-info">
-              <span className="cut-tag">ACABAMENTO & VISAGISMO</span>
-              <h3>Fade Alinhado & Navalha Clássica</h3>
-              <p>Sombreamento natural com contorno limpo feito na navalha.</p>
-            </div>
-          </div>
-
-          <div className="cut-card">
-            <img src={beardStylingImg} alt="Design de Barba" />
-            <div className="cut-info">
-              <span className="cut-tag">DESIGN DE BARBA & TEXTURA</span>
-              <h3>Crop Texturizado & Beard Shaping</h3>
-              <p>Modelagem da barba acompanhando as linhas naturais do rosto.</p>
-            </div>
-          </div>
+          {cuts.map(({img, altTxt, goldLabel, title, desc}) => (
+            <Service key={title} fig={img} alt={altTxt}>
+              <span className="cut-tag">{goldLabel}</span>
+              <h3 className="cut-title">{title}</h3>
+              <p className="cut-desc">{desc}</p>
+            </Service>
+          ))}
 
           {/* Card Filosofia / Destaque Institucional */}
           <div className="philosophy-card">
