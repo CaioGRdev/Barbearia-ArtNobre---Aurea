@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { services } from '../data/homePage';
+
+import SectionTitle from './SectionTitle';
 import Service from './Service';
 
 export function BarberServices() {
@@ -9,8 +11,9 @@ export function BarberServices() {
         
         <div className="services-header">
           <div>
-            <span className="section-tagline">OS NOSSOS SERVIÇOS</span>
-            <h2 className="section-title">O que fazemos</h2>
+            <SectionTitle label="Os Nossos Serviços">
+              O Que Nós Fazemos?
+            </SectionTitle>
           </div>
           {/* Troca aqui: redireciona para a tabela completa em /precos */}
           <Link to="/precos" className="btn-secondary">
@@ -25,17 +28,6 @@ export function BarberServices() {
               <p className="service-description">{desc}</p>
               <span className="service-price">{price}</span>
             </Service>
-            
-            // <div className="service-card" key={title}>
-            //   <div className="service-img-wrapper">
-            //     <img src={image} alt={title} className="service-img" />
-            //   </div>
-            //   <div className="service-info">
-            //     <h3 className="service-title">{title}</h3>
-            //     <p className="service-description">{desc}</p>
-            //     <span className="service-price">{price}</span>
-            //   </div>
-            // </div>
           ))}
         </div>
 

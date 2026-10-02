@@ -5,6 +5,8 @@ import img1 from '../assets/logo.webp';
 import img2 from '../assets/chairs_barber.webp';
 import img3 from '../assets/barber.webp';
 
+import SectionTitle from './SectionTitle';
+
 // Componente simples para animar o número subindo (MANTIDO INTACTO)
 function Counter({ end, duration = 2000, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -94,10 +96,9 @@ export function BarberAbout() {
 
         {/* Lado Direito: Textos + Cards de Números (MANTIDO INTACTO) */}
         <div className="about-content animate-slide-left">
-          <span className="section-tagline">SOBRE NÓS</span>
-          <h2 className="section-title">
-            Uma barbearia construída com <span className="gold-text">paixão e precisão</span>
-          </h2>
+          <SectionTitle label="Sobre Nós">
+            Uma barbearia construída com <strong>paixão e precisão</strong>!
+          </SectionTitle>
 
           <p className="about-description">
             Fundada em 2016, a Barbearia Art Nobre nasceu da vontade de criar um espaço onde cada cliente é tratado com atenção ao detalhe e respeito pelo seu estilo único.

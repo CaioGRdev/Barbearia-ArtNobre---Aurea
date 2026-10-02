@@ -10,16 +10,21 @@ import detailsImg from "../assets/logo.webp";
 
 import {cuts} from "../data/spacePage.js"
 import Service from "./Service";
+import SectionTitle from "./SectionTitle";
 
 export function SpacePage() {
   return (
     <div className="space-page-container">
       {/* SEÇÃO 1: CABEÇALHO DA PÁGINA */}
       <section className="space-hero-section">
-        <span className="space-section-tagline">AMBIENTE & EXPERIÊNCIA</span>
+        <SectionTitle label="Ambiente & Experiência">
+          Mais que uma barbearia, um <strong>refúgio</strong> para o seu tempo!
+        </SectionTitle>
+        {/* <span className="space-section-tagline">AMBIENTE & EXPERIÊNCIA</span>
         <h1 className="space-hero-title">
           Mais que uma barbearia, um <em>refúgio</em> para o seu tempo.
-        </h1>
+        </h1> */}
+
         <p className="space-hero-description">
           Estruturada estrategicamente no coração de Campos dos Goytacazes para oferecer
           descompressão, sofisticação e cerca de dez bancadas e poltronas clássicas com áudio impecável.
@@ -53,10 +58,14 @@ export function SpacePage() {
         </div>
 
         <div className="details-content">
-          <span className="space-section-tagline">DETALHES DO ESPAÇO</span>
+          <SectionTitle label="Detalhes do Espaço">
+            Conforto autêntico e atenção a <strong>cada detalhe</strong>!
+          </SectionTitle>
+          {/* <span className="space-section-tagline">DETALHES DO ESPAÇO</span>
           <h2 className="space-section-title">
             Conforto autêntico e atenção a <em>cada detalhe</em>
-          </h2>
+          </h2> */}
+
           <p className="details-description">
             Desde 2016 unimos o visual clássico da barbearia com conveniências
             contemporâneas. Aqui, o seu momento de corte ou barba é acompanhado por uma
@@ -88,8 +97,11 @@ export function SpacePage() {
       <section className="space-cuts-section">
         <div className="cuts-header">
           <div>
-            <span className="space-section-tagline">NOSSO TRABALHO</span>
-            <h2 className="space-section-title">Alguns dos nossos cortes</h2>
+            <SectionTitle label="Nosso Trabalho">
+              Alguns Dos Nossos Cortes:
+            </SectionTitle>
+            {/* <span className="space-section-tagline">NOSSO TRABALHO</span>
+            <h2 className="space-section-title">Alguns dos nossos cortes</h2> */}
           </div>
           <a
             href="https://instagram.com"
