@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: dark;
-  color: #ffffff;
-  background-color: #0a0a0a;
+  color: var(--text-white);
+  background-color: var(--bg-dark);
 
   /* Suas variáveis de cor */
   --bg-dark: #0a0a0a;
@@ -69,6 +69,9 @@ a {
   transition: all 0.3s ease;
 }
 
-mark {
+mark,
+strong {
   background-color: transparent;
+  font-weight: normal;
+  color: var(--gold-color) !important;
 }

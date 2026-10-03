@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import BarberHeader from './components/BarberHeader';
+import TopBar from './components/TopBar';
 import BarberShopHero from './components/BarberShopHero';
 import BarberAbout from './components/BarberAbout';
 import BarberServices from './components/BarberServices';
@@ -31,7 +31,7 @@ function App() {
   return (
     <Router>
       <div className="main-layout">
-        <BarberHeader />
+        <TopBar />
         
         <Routes>
           {/* Rota da Página Inicial */}

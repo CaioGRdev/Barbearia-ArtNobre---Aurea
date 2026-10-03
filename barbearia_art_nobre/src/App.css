@@ -13,23 +13,10 @@
 }
 
 /* 2. HEADER E TOPBAR */
-.header-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  /* Garante que o header fique sobre a hero */
-}
+.header-wrapper {}
 
 .topbar {
-  background-color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  text-align: center;
-  padding: 6px 15px;
-  letter-spacing: 1px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,26 +33,12 @@
 }
 
 /* Navegação Principal - Consertando alinhamentos */
-.barber-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent);
-}
+.barber-header {}
 
 /* Logo e Nome */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+.logo-container {}
 
-.header-logo-icon {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
-}
+.header-logo-icon {}
 
 .logo-text {
   display: flex;
@@ -86,17 +59,10 @@
 }
 
 /* Menu Central - Consertando os links roxos e sublinhados */
-.nav-menu {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
+.nav-menu {}
 
 .nav-link {
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  font-weight: 400;
+
   text-decoration: none;
 }
 
