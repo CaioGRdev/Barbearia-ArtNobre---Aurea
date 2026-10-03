@@ -1,5 +1,6 @@
-import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import logoWebp from '../assets/logo-nobg.webp'; // Import da sua imagem em webp
+
+import SocialsLink from './SocialsLink';
 
 export function BarberFooter() {
   return (
@@ -12,14 +13,8 @@ export function BarberFooter() {
           <p className="footer-description">
             Oito anos a transformar estilos e a criar laços com os nossos clientes. Bem-vindos à nossa barbearia.
           </p>
-          <div className="footer-socials">
-            <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="social-box">
-              <FaWhatsapp />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-box">
-              <FaInstagram />
-            </a>
-          </div>
+
+          <SocialsLink />
         </div>
 
         {/* Coluna 2: Navegação */}
