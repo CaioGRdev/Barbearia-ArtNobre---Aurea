@@ -1,0 +1,141 @@
+.root {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: '. content' '. content' 'copyright copyright';
+  gap: 20px;
+
+  padding: 0 5vw 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-dark);
+
+  &>* {
+    justify-self: center;
+  }
+}
+
+.logo {
+  &>img {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin: auto;
+  }
+
+  &>figcaption {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+}
+
+.mainContent {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 0.8fr 0.8fr 1.2fr;
+  grid-area: content;
+  gap: 20px 30px;
+
+  &>h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  &>ul {
+    list-style-type: none;
+    font-size: 0.85rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 12px; */
+  }
+}
+
+.linkList {
+  color: var(--text-muted);
+  text-align: center;
+
+  & a:hover {
+    color: var(--gold-color);
+  }
+}
+
+.timeList {
+  & h4 {
+    color: var(--text-muted);
+  }
+}
+
+.map {
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  /* Filtro CSS para escurecer o mapa sem perder o tom vermelho do pino */
+  &>iframe {
+    width: 1fr;
+    height: 1fr;
+    filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%);
+  }
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  grid-area: copyright;
+  justify-self: initial;
+
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  padding-top: 10px;
+  border-top: 1px solid currentColor;
+}
+
+/* Responsividade para Telas Menores */
+@media only screen and (max-width: 900px) {
+  .root {
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: '.' '.' 'content' 'copyright';
+  }
+
+  .logo {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .root {
+    gap: 30px;
+  }
+
+  .mainContent {
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    &>h3 {
+      text-align: initial;
+    }
+
+    &>ul {
+      text-align: initial;
+      gap: 10px;
+    }
+  }
+
+  .copyright {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
