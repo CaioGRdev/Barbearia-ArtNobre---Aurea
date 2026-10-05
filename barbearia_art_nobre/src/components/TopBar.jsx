@@ -1,7 +1,7 @@
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import SocialsLink from './SocialsLink';
+// import SocialsLink from './SocialsLink';
 import style from "./topBar.module.css";
 
 export function TopBar() {
@@ -24,7 +24,15 @@ export function TopBar() {
           <Link to="/espaco">Nosso Espaço</Link>
         </nav>
 
-        <SocialsLink />
+        <div className={style.socialIconsBox}>
+          <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="social-icon" aria-label="WhatsApp">
+            <FaWhatsapp />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-icon" aria-label="Instagram">
+            <FaInstagram />
+          </a>
+        </div>
+        {/* <SocialsLink /> */}
       </section>
     </header>
   );
