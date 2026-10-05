@@ -187,7 +187,6 @@
 
 .about-container {
   max-width: 1200px;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 60px;

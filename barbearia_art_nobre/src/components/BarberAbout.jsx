@@ -61,7 +61,7 @@ export function BarberAbout() {
       <div className="about-container">
         
         {/* Lado Esquerdo: Carrossel + Badge */}
-        <div className="about-image-wrapper animate-slide-right">
+        <div className="about-image-wrapper">
           
           <div className="about-carousel-container">
             {images.map((img, index) => (
