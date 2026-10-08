@@ -13,7 +13,7 @@ export function TopBar() {
 
       <section>
         <Link to="/" className={style.mainLogoBox}>
-          <img src="/src/assets/logo-nobg.webp" alt="Logo" />
+          <img src="/logo-nobg.webp" alt="Logo" />
           <span>Barbearia</span>
           <strong>Art Nobre</strong>
         </Link>

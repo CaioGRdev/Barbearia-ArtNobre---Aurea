@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 
 // Importe as suas imagens do carrossel na pasta assets
-import img1 from '../assets/logo.webp'; 
-import img2 from '../assets/chairs_barber.webp';
-import img3 from '../assets/barber.webp';
+import img1 from '/dono-cortando.webp'; 
+import img2 from '/chairs_barber.webp';
+import img3 from '/game-space.webp';
 
 import SectionTitle from './SectionTitle';
 

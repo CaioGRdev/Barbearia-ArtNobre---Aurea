@@ -1,7 +1,4 @@
 // Substitua pelas fotos reais dos barbeiros na pasta assets
-// import barber1 from '../assets/hero-bg.webp'; 
-// import barber2 from '../assets/hero-bg.webp';
-// import barber3 from '../assets/hero-bg.webp';
 
 import SectionTitle from "./SectionTitle";
 
@@ -11,19 +8,19 @@ export function BarberTeam() {
       id: 1,
       name: 'Jesus Riter',
       role: 'Dono',
-      image: "",
+      image: "/hero-bg.webp",
     },
     {
       id: 2,
       name: 'Greyson',
       role: 'Barbeiro',
-      image: "",
+      image: "/hero-bg.webp",
     },
     {
       id: 3,
       name: 'Fernando',
       role: 'Barbeiro',
-      image: "",
+      image: "/hero-bg.webp",
     },
   ];
 

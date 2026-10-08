@@ -1,13 +1,5 @@
 // src/pages/SpacePage.jsx
 
-// SUBSTITUA OS NOMES ABAIXO PELOS ARQUIVOS REAIS DA SUA PASTA ASSETS:
-import playgroundImg from "../assets/playground.webp";
-import locationImg from "../assets/location.webp";
-import spaceImg from "../assets/space.webp";
-import detailsImg from "../assets/logo.webp";
-// import fadeImg from "../assets/fade.webp";
-// import beardStylingImg from "../assets/fade_e_barba.webp";
-
 import {cuts} from "../data/spacePage.js"
 import Service from "./Service";
 import SectionTitle from "./SectionTitle";
@@ -33,15 +25,15 @@ export function SpacePage() {
         {/* Grid Superior de 3 fotos estilo banner */}
         <div className="space-top-grid">
           <div className="top-grid-item">
-            <img src={playgroundImg} alt="Sala de Jogos" />
+            <img src="/game-space-2.webp" alt="Sala de Jogos" />
             <span className="grid-label">SALA DE JOGOS</span>
           </div>
           <div className="top-grid-item">
-            <img src={locationImg} alt="Localização Espaço" />
+            <img src="/game-space.webp" alt="Localização Espaço" />
             <span className="grid-label">RUA TEN. COL. CARDOSO, 703</span>
           </div>
           <div className="top-grid-item">
-            <img src={spaceImg} alt="Ambiente Climatizado" />
+            <img src="/barber-space.webp" alt="Ambiente Climatizado" />
             <span className="grid-label">AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA</span>
           </div>
         </div>
@@ -50,7 +42,7 @@ export function SpacePage() {
       {/* SEÇÃO 2: DETALHES DO ESPAÇO */}
       <section className="space-details-section">
         <div className="details-image-container">
-          <img src={detailsImg} alt="Ambiente aconchegante da barbearia" />
+          <img src="/corte-kids.webp" alt="Ambiente aconchegante da barbearia" />
           <div className="experience-badge">
             <span className="years-number">10</span>
             <span className="years-text">ANOS DE<br />EXPERIÊNCIA</span>

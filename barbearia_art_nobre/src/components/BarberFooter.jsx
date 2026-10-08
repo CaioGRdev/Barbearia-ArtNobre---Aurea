@@ -1,4 +1,4 @@
-import logoWebp from '../assets/logo-nobg.webp'; // Import da sua imagem em webp
+import logoWebp from '/logo-nobg.webp'; // Import da sua imagem em webp
 import style from "./barberFooter.module.css";
 import SocialsLink from './SocialsLink';
 
