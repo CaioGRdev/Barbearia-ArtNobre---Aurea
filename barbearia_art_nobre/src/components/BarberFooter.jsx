@@ -1,30 +1,38 @@
-import logoWebp from '/logo-nobg.webp'; // Import da sua imagem em webp
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import style from "./barberFooter.module.css";
-import SocialsLink from './SocialsLink';
 
 export function BarberFooter() {
   return (
     <footer className={style.root}>
-      {/* Logotipo e Redes Sociais */}
-      <figure className={style.logo}>
-        <img src={logoWebp} alt="Logo Art Nobre" />
-        <figcaption>
-          Oito anos a transformar estilos e a criar laços com os nossos clientes. Bem-vindos à nossa barbearia.
-        </figcaption>
-      </figure>
-      <SocialsLink />
+      <section className={style.figureSection}>
+        <figure className={style.barberFigure}>
+          <img src="/logo-nobg.webp" alt="Logo da Barbearia" />
+          <figcaption>
+            Há oito anos transformando estilos e criando laços com os nossos clientes.
+            Bem-vindos à nossa barbearia!
+          </figcaption>
+        </figure>
 
-      {/* A maior parte do conteúdo relevante */}
-      <section className={style.mainContent}>
-        {/* Links Navegação */}
+        <div className={style.linksSocial}>
+          <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="social-icon" aria-label="WhatsApp">
+            <FaWhatsapp />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-icon" aria-label="Instagram">
+            <FaInstagram />
+          </a>
+        </div>
+      </section>
+
+      <section className={style.linkSection}>
         <h3>Navegação</h3>
-        <ul className={style.linkList}>
+        <ul>
           <li><a href="#inicio">Início</a></li>
           <li><a href="#precos">Preços</a></li>
           <li><a href="#equipe">Equipe</a></li>
         </ul>
+      </section>
 
-        {/* Coluna de Horários */}
+      <section className={style.timeSection}>
         <h3>Horário</h3>
         <ul className={style.timeList}>
           <li>
@@ -40,23 +48,22 @@ export function BarberFooter() {
             <span>Fechado</span>
           </li>
         </ul>
+      </section>
 
-        {/* Coluna de Contato e Mapa (by Google Maps) */}
+      <section className={style.mapSection}>
         <h3>Contato & Localização</h3>
-        <address className={style.map}>
-          <p>
-            Rua Tenente Coronel Cardoso, 703 - Campos dos Goytacazes, RJ
-          </p>
-          <iframe
-            title="Google Maps - Barbearia Art Nobre"
-            src="https://www.google.com/maps?q=Rua+Tenente+Coronel+Cardoso+703+Parque+California+Campos+dos+Goytacazes+RJ&output=embed"
-            width="100%"
-            height="110"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+        <address className={style.aboutLocal}>
+          Rua Tenente Coronel Cardoso, 703 - Campos dos Goytacazes, RJ
         </address>
+        <iframe
+          title="Google Maps - Barbearia Art Nobre"
+          src="https://www.google.com/maps?q=Rua+Tenente+Coronel+Cardoso+703+Parque+California+Campos+dos+Goytacazes+RJ&output=embed"
+          width="100%"
+          height="110"
+          className={style.map}
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
       </section>
 
       {/* Copyright inferior */}
