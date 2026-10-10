@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 
 export function BarberContactCTA() {

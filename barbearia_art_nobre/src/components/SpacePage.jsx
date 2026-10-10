@@ -1,21 +1,22 @@
 // src/pages/SpacePage.jsx
-import React from "react";
 
-// SUBSTITUA OS NOMES ABAIXO PELOS ARQUIVOS REAIS DA SUA PASTA ASSETS:
-import heroImg from "../assets/hero.png"; 
-import detailsImg from "../assets/hero.png";
-import corte1 from "../assets/hero.png";
-import corte2 from "../assets/hero.png";
+import {cuts} from "../data/spacePage.js"
+import Service from "./Service";
+import SectionTitle from "./SectionTitle";
 
 export function SpacePage() {
   return (
     <div className="space-page-container">
       {/* SEÇÃO 1: CABEÇALHO DA PÁGINA */}
       <section className="space-hero-section">
-        <span className="space-section-tagline">AMBIENTE & EXPERIÊNCIA</span>
+        <SectionTitle label="Ambiente & Experiência">
+          Mais que uma barbearia, um <strong>refúgio</strong> para o seu tempo!
+        </SectionTitle>
+        {/* <span className="space-section-tagline">AMBIENTE & EXPERIÊNCIA</span>
         <h1 className="space-hero-title">
           Mais que uma barbearia, um <em>refúgio</em> para o seu tempo.
-        </h1>
+        </h1> */}
+
         <p className="space-hero-description">
           Estruturada estrategicamente no coração de Campos dos Goytacazes para oferecer
           descompressão, sofisticação e cerca de dez bancadas e poltronas clássicas com áudio impecável.
@@ -24,15 +25,15 @@ export function SpacePage() {
         {/* Grid Superior de 3 fotos estilo banner */}
         <div className="space-top-grid">
           <div className="top-grid-item">
-            <img src={heroImg} alt="Boutique e Lounge" />
-            <span className="grid-label">BOUTIQUE & WHISKY LOUNGE</span>
+            <img src="/game-space-2.webp" alt="Sala de Jogos" />
+            <span className="grid-label">SALA DE JOGOS</span>
           </div>
           <div className="top-grid-item">
-            <img src={heroImg} alt="Localização Espaço" />
+            <img src="/game-space.webp" alt="Localização Espaço" />
             <span className="grid-label">RUA TEN. COL. CARDOSO, 703</span>
           </div>
           <div className="top-grid-item">
-            <img src={heroImg} alt="Ambiente Climatizado" />
+            <img src="/barber-space.webp" alt="Ambiente Climatizado" />
             <span className="grid-label">AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA</span>
           </div>
         </div>
@@ -41,7 +42,7 @@ export function SpacePage() {
       {/* SEÇÃO 2: DETALHES DO ESPAÇO */}
       <section className="space-details-section">
         <div className="details-image-container">
-          <img src={detailsImg} alt="Ambiente aconchegante da barbearia" />
+          <img src="/corte-kids.webp" alt="Ambiente aconchegante da barbearia" />
           <div className="experience-badge">
             <span className="years-number">10</span>
             <span className="years-text">ANOS DE<br />EXPERIÊNCIA</span>
@@ -49,10 +50,14 @@ export function SpacePage() {
         </div>
 
         <div className="details-content">
-          <span className="space-section-tagline">DETALHES DO ESPAÇO</span>
+          <SectionTitle label="Detalhes do Espaço">
+            Conforto autêntico e atenção a <strong>cada detalhe</strong>!
+          </SectionTitle>
+          {/* <span className="space-section-tagline">DETALHES DO ESPAÇO</span>
           <h2 className="space-section-title">
             Conforto autêntico e atenção a <em>cada detalhe</em>
-          </h2>
+          </h2> */}
+
           <p className="details-description">
             Desde 2016 unimos o visual clássico da barbearia com conveniências
             contemporâneas. Aqui, o seu momento de corte ou barba é acompanhado por uma
@@ -84,8 +89,11 @@ export function SpacePage() {
       <section className="space-cuts-section">
         <div className="cuts-header">
           <div>
-            <span className="space-section-tagline">NOSSO TRABALHO</span>
-            <h2 className="space-section-title">Alguns dos nossos cortes</h2>
+            <SectionTitle label="Nosso Trabalho">
+              Alguns Dos Nossos Cortes:
+            </SectionTitle>
+            {/* <span className="space-section-tagline">NOSSO TRABALHO</span>
+            <h2 className="space-section-title">Alguns dos nossos cortes</h2> */}
           </div>
           <a
             href="https://instagram.com"
@@ -98,23 +106,13 @@ export function SpacePage() {
         </div>
 
         <div className="cuts-grid">
-          <div className="cut-card">
-            <img src={corte1} alt="Fade Alinhado" />
-            <div className="cut-info">
-              <span className="cut-tag">ACABAMENTO & VISAGISMO</span>
-              <h3>Fade Alinhado & Navalha Clássica</h3>
-              <p>Sombreamento natural com contorno limpo feito na navalha.</p>
-            </div>
-          </div>
-
-          <div className="cut-card">
-            <img src={corte2} alt="Crop Texturizado" />
-            <div className="cut-info">
-              <span className="cut-tag">DESIGN DE BARBA & TEXTURA</span>
-              <h3>Crop Texturizado & Beard Shaping</h3>
-              <p>Modelagem da barba acompanhando as linhas naturais do rosto.</p>
-            </div>
-          </div>
+          {cuts.map(({img, altTxt, goldLabel, title, desc}) => (
+            <Service key={title} fig={img} alt={altTxt}>
+              <span className="cut-tag">{goldLabel}</span>
+              <h3 className="cut-title">{title}</h3>
+              <p className="cut-desc">{desc}</p>
+            </Service>
+          ))}
 
           {/* Card Filosofia / Destaque Institucional */}
           <div className="philosophy-card">

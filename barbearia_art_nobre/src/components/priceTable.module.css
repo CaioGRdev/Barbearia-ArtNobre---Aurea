@@ -1,0 +1,29 @@
+.cardPrice {
+  background-color: var(--bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 30px;
+
+  &>h2 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-white);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    padding-bottom: 12px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+  }
+
+  &>ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 14px;
+  }
+}
+
+.icon {
+  color: var(--gold-color);
+  margin-right: 10px;
+}

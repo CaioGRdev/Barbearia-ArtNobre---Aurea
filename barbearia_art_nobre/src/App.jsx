@@ -1,7 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import BarberHeader from './components/BarberHeader';
+import TopBar from './components/TopBar';
 import BarberShopHero from './components/BarberShopHero';
 import BarberAbout from './components/BarberAbout';
 import BarberServices from './components/BarberServices';
@@ -11,7 +10,7 @@ import BarberFooter from './components/BarberFooter';
 import { SpacePage } from './components/SpacePage';
 
 // A nova página que contém a tabela de preços completa
-import { PricesPage } from './components/PricesPage';
+import { PricesPage } from './pages/PricesPage';
 
 import './App.css';
 
@@ -32,7 +31,7 @@ function App() {
   return (
     <Router>
       <div className="main-layout">
-        <BarberHeader />
+        <TopBar />
         
         <Routes>
           {/* Rota da Página Inicial */}
