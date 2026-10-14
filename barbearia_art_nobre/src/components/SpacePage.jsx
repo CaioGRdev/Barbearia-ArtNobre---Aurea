@@ -24,9 +24,13 @@ function CutCard({ img, altTxt, goldLabel, title, desc, delayClass }) {
 
 export function SpacePage() {
   const topGridItems = [
-    { image: '/game-space-2.webp', alt: 'Sala de Jogos', label: 'SALA DE JOGOS' },
-    { image: '/game-space.webp', alt: 'Localização Espaço', label: 'RUA TEN. COL. CARDOSO, 703' },
-    { image: '/barber-space.webp', alt: 'Ambiente Climatizado', label: 'AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA' },
+    { image: '/barbearia_itens.webp', alt: 'Produtos e ferramentas de barbearia' },
+    { image: '/barbearia_itens2.webp', alt: 'Letreiro da Barbearia Art Nobre' },
+    { image: '/barbearia_itens3.webp', alt: 'Fachada e poste de barbearia na rua' },
+    { image: '/barbearia_itens4.webp', alt: 'Entrada da Barbearia Art Nobre' },
+    { image: '/barbearia_itens5.webp', alt: 'Quadros decorativos no interior da barbearia' },
+    { image: '/barbearia_itens6.webp', alt: 'Produtos para cabelo e barba' },
+    { image: '/barbearia_itens7.webp', alt: 'Mesa de sinuca na sala de jogos' },
   ];
 
   // ── Seção 1: Página Hero ──
@@ -71,10 +75,9 @@ export function SpacePage() {
                   key={isDuplicate ? 'duplicate' : 'original'}
                   aria-hidden={isDuplicate}
                 >
-                  {topGridItems.map(({ image, alt, label }) => (
-                    <div className="top-grid-item" key={label}>
+                  {topGridItems.map(({ image, alt }) => (
+                    <div className="top-grid-item" key={image}>
                       <img src={image} alt={isDuplicate ? '' : alt} />
-                      <span className="grid-label">{label}</span>
                     </div>
                   ))}
                 </div>

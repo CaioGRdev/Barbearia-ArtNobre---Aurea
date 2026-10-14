@@ -8,23 +8,34 @@ export function useScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const scrollContainer =
+      document.getElementById('root') ||
+      document.scrollingElement ||
+      document.documentElement;
     let rafId = null;
 
     const update = () => {
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      const total = scrollHeight - clientHeight;
-      setProgress(total > 0 ? (scrollTop / total) * 100 : 0);
+      const total = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+      const nextProgress =
+        total > 0 ? (scrollContainer.scrollTop / total) * 100 : 0;
+      setProgress(Math.min(100, Math.max(0, nextProgress)));
     };
 
-    const onScroll = () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(update);
+    const scheduleUpdate = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        update();
+      });
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    scrollContainer.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (rafId) cancelAnimationFrame(rafId);
+      scrollContainer.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
 

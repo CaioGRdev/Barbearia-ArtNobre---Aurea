@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import TopBar from './components/TopBar';
 import BarberShopHero from './components/BarberShopHero';
@@ -15,6 +16,17 @@ import { SpacePage } from './components/SpacePage';
 import { PricesPage } from './pages/PricesPage';
 
 import './App.css';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    const scrollContainer = document.getElementById('root');
+    if (scrollContainer) scrollContainer.scrollTop = 0;
+  }, [pathname]);
+
+  return null;
+}
 
 // Página Inicial (Landing Page completa com seus componentes)
 function HomePage() {
@@ -33,6 +45,8 @@ function HomePage() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
+
       {/* Barra de progresso de scroll — fica acima de tudo, inclusive do TopBar */}
       <ScrollProgressBar />
 
