@@ -23,6 +23,12 @@ function CutCard({ img, altTxt, goldLabel, title, desc, delayClass }) {
 }
 
 export function SpacePage() {
+  const topGridItems = [
+    { image: '/game-space-2.webp', alt: 'Sala de Jogos', label: 'SALA DE JOGOS' },
+    { image: '/game-space.webp', alt: 'Localização Espaço', label: 'RUA TEN. COL. CARDOSO, 703' },
+    { image: '/barber-space.webp', alt: 'Ambiente Climatizado', label: 'AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA' },
+  ];
+
   // ── Seção 1: Página Hero ──
   const refHeroTitle  = useScrollReveal({ threshold: 0.1 });
   const refHeroDesc   = useScrollReveal({ threshold: 0.1 });
@@ -58,17 +64,21 @@ export function SpacePage() {
 
           {/* Grid de fotos revela em bloco */}
           <div ref={refPhotoGrid} className="space-top-grid reveal reveal--delay-2">
-            <div className="top-grid-item">
-              <img src="/game-space-2.webp" alt="Sala de Jogos" />
-              <span className="grid-label">SALA DE JOGOS</span>
-            </div>
-            <div className="top-grid-item">
-              <img src="/game-space.webp" alt="Localização Espaço" />
-              <span className="grid-label">RUA TEN. COL. CARDOSO, 703</span>
-            </div>
-            <div className="top-grid-item">
-              <img src="/barber-space.webp" alt="Ambiente Climatizado" />
-              <span className="grid-label">AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA</span>
+            <div className="space-top-grid-track">
+              {[false, true].map((isDuplicate) => (
+                <div
+                  className="space-top-grid-group"
+                  key={isDuplicate ? 'duplicate' : 'original'}
+                  aria-hidden={isDuplicate}
+                >
+                  {topGridItems.map(({ image, alt, label }) => (
+                    <div className="top-grid-item" key={label}>
+                      <img src={image} alt={isDuplicate ? '' : alt} />
+                      <span className="grid-label">{label}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
 
