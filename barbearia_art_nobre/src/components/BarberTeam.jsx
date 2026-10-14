@@ -11,19 +11,19 @@ export function BarberTeam() {
       id: 1,
       name: 'Jesus Riter',
       role: 'Dono',
-      image: "/hero-bg.webp",
+      image: "./../public/jesus.webp",
     },
     {
       id: 2,
-      name: 'Greyson',
+      name: 'Gerson',
       role: 'Barbeiro',
-      image: "/hero-bg.webp",
+      image: "./../public/gerson.webp",
     },
     {
       id: 3,
       name: 'Fernando',
       role: 'Barbeiro',
-      image: "/hero-bg.webp",
+      image: "./../public/fernando.webp",
     },
   ];
 
