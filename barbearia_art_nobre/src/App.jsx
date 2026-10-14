@@ -5,8 +5,10 @@ import BarberShopHero from './components/BarberShopHero';
 import BarberAbout from './components/BarberAbout';
 import BarberServices from './components/BarberServices';
 import BarberTeam from './components/BarberTeam';
+import BarberTestimonials from './components/BarberTestimonials';
 import BarberContactCTA from './components/BarberContactCTA';
 import BarberFooter from './components/BarberFooter';
+import ScrollProgressBar from './components/ScrollProgressBar';
 import { SpacePage } from './components/SpacePage';
 
 // A nova página que contém a tabela de preços completa
@@ -22,6 +24,7 @@ function HomePage() {
       <BarberAbout />
       <BarberServices />
       <BarberTeam />
+      <BarberTestimonials />
       <BarberContactCTA />
     </>
   );
@@ -30,6 +33,9 @@ function HomePage() {
 function App() {
   return (
     <Router>
+      {/* Barra de progresso de scroll — fica acima de tudo, inclusive do TopBar */}
+      <ScrollProgressBar />
+
       <div className="main-layout">
         <TopBar />
         

@@ -65,11 +65,41 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
-    url('/hero-bg.webp') center center / cover no-repeat;
+  /* SEM background aqui — a imagem vai no .hero-parallax-bg */
+  overflow: hidden;
+  /* garante que o bg extrapolado não vaze para fora */
   padding: 120px 20px 40px 20px;
-  /* Padding superior para não grudar no header */
   box-sizing: border-box;
+}
+
+/* ── Elemento de fundo do Parallax ── */
+/* Fica 30% maior que a section (top/bottom: -15%) para ter espaço de mover */
+.hero-parallax-bg {
+  position: absolute;
+  inset: -15% 0;
+  background: url('/hero-bg.webp') 65% center / cover no-repeat;
+  will-change: transform;
+  /* GPU compositing */
+  z-index: 0;
+}
+
+/* ── Overlay escuro acima do bg, abaixo do conteúdo ── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.88) 100%);
+  z-index: 1;
+}
+
+/* hero-content precisa de position: relative para z-index funcionar acima do overlay */
+.hero-section > .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* scroll-indicator ja tem position: absolute -- so eleva o z-index */
+.hero-section > .scroll-indicator {
+  z-index: 2;
 }
 
 .hero-content {
@@ -77,6 +107,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  width: 100%;
   max-width: 900px;
 }
 
@@ -1317,4 +1349,220 @@
 
 .img-placeholder.large {
   min-height: 450px;
+}
+
+/* ============================================================
+   BARRA DE PROGRESSO DE SCROLL
+   ============================================================ */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  /* Gradiente dourado com brilho */
+  background: linear-gradient(
+    to right,
+    var(--gold-color),
+    #f0d060,
+    var(--gold-color)
+  );
+  z-index: 99999;
+  /* Acima de tudo */
+  transition: width 0.08s linear;
+  /* Suave mas responsivo */
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.7);
+  /* Brilho dourado */
+  pointer-events: none;
+  /* Não interfere em cliques */
+}
+
+/* ============================================================
+   SEÇÃO DE DEPOIMENTOS / AVALIAÇÕES GOOGLE
+   ============================================================ */
+
+.testimonials-section {
+  padding: 100px 50px;
+  background-color: #060606;
+  display: flex;
+  justify-content: center;
+  /* Linha decorativa separando da seção anterior */
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ── Cabeçalho ── */
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonials-tagline {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: var(--gold-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.testimonials-title {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--text-white);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Resumo de rating */
+.testimonials-rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.testimonials-score {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold-color);
+  font-family: var(--font-heading);
+}
+
+.testimonials-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Grid de cards ── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+/* ── Card individual ── */
+.testimonial-card {
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.08);
+}
+
+/* Linha do topo do card: avatar + nome + ícone Google */
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-color);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.testimonial-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.testimonial-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Ícone Google no canto direito do header */
+.testimonial-google-icon {
+  color: #4285f4;
+  /* Azul do Google */
+  font-size: 1rem;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* Estrelas douradas */
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  color: #f5b800;
+  font-size: 0.85rem;
+}
+
+/* Texto do depoimento */
+.testimonial-text {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── CTA abaixo do grid ── */
+.testimonials-cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── 5º card ocupa coluna central na linha 2 (grid de 3 cols) ── */
+.testimonials-grid > .testimonial-card:nth-child(4) {
+  grid-column: 1;
+}
+.testimonials-grid > .testimonial-card:nth-child(5) {
+  grid-column: 2;
+}
+
+/* ── Responsividade ── */
+@media (max-width: 900px) {
+  .testimonials-section {
+    padding: 80px 24px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid > .testimonial-card:nth-child(4),
+  .testimonials-grid > .testimonial-card:nth-child(5) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonials-title {
+    font-size: 1.8rem;
+  }
 }
