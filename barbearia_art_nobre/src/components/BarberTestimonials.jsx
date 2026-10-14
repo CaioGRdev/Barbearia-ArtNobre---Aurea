@@ -132,9 +132,9 @@ export function BarberTestimonials() {
           </div>
         </div>
 
-        {/* Grid de cards */}
+        {/* Grid de cards — 6 depoimentos = 2 linhas limpas */}
         <div className="testimonials-grid">
-          {testimonials.map((t, i) => (
+          {testimonials.slice(0, 6).map((t, i) => (
             <TestimonialCard
               key={t.id}
               testimonial={t}

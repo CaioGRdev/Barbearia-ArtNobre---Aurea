@@ -1,7 +1,7 @@
 .workView {
-  background-color: #0f0f0f;
+  background-color: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,6 @@
     padding: 25px;
     gap: 0;
     font-size: 1rem;
-    /* Borda sutil dourada no topo do figcaption */
     border-top: 2px solid rgba(212, 175, 55, 0.15);
     transition: border-color 0.3s ease;
   }

@@ -20,6 +20,12 @@
   --text-white: #ffffff;
   --text-muted: #a0a0a0;
   --border-color: rgba(255, 255, 255, 0.15);
+
+  /* ── Níveis de fundo (ritmo de scroll) ── */
+  --bg-deep:   #050505;
+  --bg-base:   #090909;
+  --bg-raised: #0f0f0f;
+  --bg-card:   #141414;
 }
 
 /* Garante que o root ocupe a tela toda */
