@@ -1175,7 +1175,7 @@
 
 /* SEÇÃO 3: CORTES */
 .space-cuts-section {
-  margin-bottom: 100px;
+  margin-bottom: 36px;
 }
 
 .cuts-header {
@@ -1200,46 +1200,75 @@
   color: #000;
 }
 
-.cuts-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-.cut-card {
-  background: #111111;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.cut-card img {
+.cuts-filmstrip {
   width: 100%;
-  height: 280px;
-  object-fit: cover;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 42px 0;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.55) transparent;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
 }
 
-.cut-info {
-  padding: 20px;
+.cuts-filmstrip.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
 }
 
-.cut-tag {
-  font-size: 0.6rem;
-  color: #c5a059;
-  letter-spacing: 1px;
+.cuts-filmstrip-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+  min-width: 100%;
+  padding: 0 24px;
+}
+
+.cuts-filmstrip-slide {
+  appearance: none;
+  flex: 0 0 clamp(190px, 24vw, 280px);
+  width: clamp(190px, 24vw, 280px);
+  height: clamp(190px, 24vw, 280px);
+  padding: 0;
+  overflow: visible;
+  border: 1px solid rgba(197, 160, 89, 0.18);
+  background: #0b0b0b;
+  cursor: pointer;
+  opacity: 0.68;
+  scroll-snap-align: center;
+  transform: scale(0.8);
+  transition: transform 350ms ease, opacity 350ms ease, border-color 350ms ease;
+}
+
+.cuts-filmstrip-slide.is-selected {
+  z-index: 1;
+  border-color: var(--gold-color);
+  opacity: 1;
+  transform: scale(1.12);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+}
+
+.cuts-filmstrip-slide:focus-visible {
+  outline: 2px solid var(--gold-color);
+  outline-offset: 5px;
+}
+
+.cuts-filmstrip-slide img {
   display: block;
-  margin-bottom: 6px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
 }
 
-.cut-title {
-  color: #ffffff;
-  font-size: 0.95rem;
-  margin: 0 0 8px 0;
-  font-weight: 500;
-}
-
-.cut-desc {
-  color: #777777;
-  font-size: 0.75rem;
-  margin: 0;
+.philosophy-card {
+  max-width: 680px;
+  min-height: 0;
+  margin: 22px auto 0;
 }
 
 .philosophy-card {
@@ -1324,8 +1353,7 @@
 /* RESPONSIVIDADE */
 @media (max-width: 900px) {
 
-  .space-details-section,
-  .cuts-grid {
+  .space-details-section {
     grid-template-columns: 1fr;
   }
 
@@ -1345,6 +1373,21 @@
     gap: 0;
   }
 
+  .cuts-filmstrip {
+    padding: 34px 0;
+  }
+
+  .cuts-filmstrip-track {
+    gap: 22px;
+    padding: 0 18px;
+  }
+
+  .cuts-filmstrip-slide {
+    flex-basis: clamp(155px, 45vw, 220px);
+    width: clamp(155px, 45vw, 220px);
+    height: clamp(155px, 45vw, 220px);
+  }
+
 }
 
 /* ====== FIX DE EXIBIÇÃO NOSSO ESPAÇO ====== */
@@ -1353,7 +1396,7 @@
   color: #e0e0e0;
   padding-top: 140px;
   /* Garante que o conteúdo fique ABAIXO do menu fixo do topo */
-  padding-bottom: 80px;
+  padding-bottom: 32px;
   padding-left: 8%;
   padding-right: 8%;
   min-height: 100vh;
@@ -1605,7 +1648,7 @@
   /* Textura sutil de fundo — mesma imagem da hero mas muito mais escura */
   background:
     linear-gradient(to bottom, rgba(8, 8, 8, 0.82) 0%, rgba(8, 8, 8, 0.96) 100%),
-    url('/hero-bg.webp') center 30% / cover no-repeat;
+    url('/Barbeiro%20em%20Concentra%C3%A7%C3%A3o%20na%20Barbearia.webp') center 30% / cover no-repeat;
 }
 
 /* Bloco central de conteúdo */

@@ -1,23 +1,102 @@
-// src/pages/SpacePage.jsx
-
+import { useEffect, useRef, useState } from "react";
 import { cuts } from "../data/spacePage.js";
-import Service from "./Service";
 import SectionTitle from "./SectionTitle";
 import BarberContactCTA from "./BarberContactCTA";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
-/* ── Sub-componente: card de corte com reveal próprio ──
-   Extraído para que cada card tenha seu próprio IntersectionObserver,
-   permitindo o efeito cascata individual igual à seção de Equipe. */
-function CutCard({ img, altTxt, goldLabel, title, desc, delayClass }) {
-  const ref = useScrollReveal({ threshold: 0.08 });
+function CutsFilmstrip({ items }) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const filmstripRef = useRef(null);
+  const dragRef = useRef(null);
+  const suppressClickRef = useRef(false);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const drag = dragRef.current;
+      const filmstrip = filmstripRef.current;
+      if (!drag || !filmstrip) return;
+
+      const distance = event.clientX - drag.startX;
+      if (Math.abs(distance) > 5) {
+        drag.moved = true;
+        filmstrip.classList.add("is-dragging");
+      }
+      if (!drag.moved) return;
+
+      event.preventDefault();
+      filmstrip.scrollLeft = drag.scrollLeft - distance;
+    };
+
+    const endDrag = () => {
+      const drag = dragRef.current;
+      if (!drag) return;
+
+      if (drag.moved) {
+        suppressClickRef.current = true;
+        window.setTimeout(() => {
+          suppressClickRef.current = false;
+        }, 0);
+      }
+
+      dragRef.current = null;
+      filmstripRef.current?.classList.remove("is-dragging");
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: false });
+    window.addEventListener("mouseup", endDrag);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", endDrag);
+    };
+  }, []);
+
+  const startDrag = (event) => {
+    if (event.button !== 0) return;
+
+    dragRef.current = {
+      startX: event.clientX,
+      scrollLeft: event.currentTarget.scrollLeft,
+      moved: false,
+    };
+    event.currentTarget.classList.add("is-dragging");
+  };
+
+  const selectItem = (index, event) => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+
+    setSelectedIndex(index);
+    event.currentTarget.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  };
+
   return (
-    <div ref={ref} className={`reveal ${delayClass}`}>
-      <Service fig={img} alt={altTxt}>
-        <span className="cut-tag">{goldLabel}</span>
-        <h3 className="cut-title">{title}</h3>
-        <p className="cut-desc">{desc}</p>
-      </Service>
+    <div
+      ref={filmstripRef}
+      className="cuts-filmstrip"
+      aria-label="Galeria de cortes"
+      onMouseDown={startDrag}
+    >
+      <div className="cuts-filmstrip-track">
+        {items.map(({ img, altTxt, title }, index) => (
+          <button
+            className={`cuts-filmstrip-slide${selectedIndex === index ? " is-selected" : ""}`}
+            key={img}
+            type="button"
+            aria-label={title}
+            aria-pressed={selectedIndex === index}
+            onClick={(event) => selectItem(index, event)}
+          >
+            <img src={img} alt={altTxt} draggable="false" />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -44,7 +123,6 @@ export function SpacePage() {
 
   // ── Seção 3: Cortes ──
   const refCutsHeader    = useScrollReveal({ threshold: 0.1 });
-  const refPhilosophy    = useScrollReveal({ threshold: 0.1 });
 
   return (
     <>
@@ -153,33 +231,21 @@ export function SpacePage() {
             </a>
           </div>
 
-          {/* Grid de cortes: cada card tem reveal próprio com cascata */}
-          <div className="cuts-grid">
-            {cuts.map(({ img, altTxt, goldLabel, title, desc }, i) => (
-              <CutCard
-                key={title}
-                img={img}
-                altTxt={altTxt}
-                goldLabel={goldLabel}
-                title={title}
-                desc={desc}
-                delayClass={`reveal--delay-${(i % 3) + 1}`}
-              />
-            ))}
+          <CutsFilmstrip items={cuts} />
 
-            {/* Card Filosofia com reveal próprio */}
-            <div ref={refPhilosophy} className="philosophy-card reveal reveal--delay-1">
-              <span className="philosophy-icon">⚔</span>
-              <span className="space-section-tagline">A FILOSOFIA ART NOBRE</span>
-              <h3>Técnica personalizada para a identidade de cada homem.</h3>
-              <p>
-                Não replicamos padrões em série. Cada fisionomia exige sensibilidade nas formas,
-                respeitando a textura natural do cabelo e a estrutura facial de cada cliente.
-              </p>
-              <div className="philosophy-footer">
-                <span>@artnobrebarbearia</span>
-                <span>EST. 2016</span>
-              </div>
+          <div className="philosophy-card">
+            <span className="philosophy-icon">⚔</span>
+            <span className="space-section-tagline">A FILOSOFIA ART NOBRE</span>
+            <h3>Cortes com  profissionais de experiência e conforto </h3>
+            <p>
+              ✨ Na Barbearia Art Nobre, seu estilo está em boas mãos!
+Agende já seu horário e venha aproveitar nossos serviços exclusivos: corte, barba, hidratação, sobrancelha, limpeza de pele e muito mais.
+
+📍 Venha nos visitar e saia com o visual impecável!
+            </p>
+            <div className="philosophy-footer">
+              <span>@artnobrebarbearia</span>
+              <span>EST. 2016</span>
             </div>
           </div>
 
