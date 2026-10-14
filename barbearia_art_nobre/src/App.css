@@ -1304,3 +1304,6 @@
 .img-placeholder.large {
   min-height: 450px;
 }
+.html{
+  scroll-behavior: smooth;
+}
