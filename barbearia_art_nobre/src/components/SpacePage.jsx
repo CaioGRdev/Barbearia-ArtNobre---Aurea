@@ -4,25 +4,60 @@ import { cuts } from "../data/spacePage.js";
 import Service from "./Service";
 import SectionTitle from "./SectionTitle";
 import BarberContactCTA from "./BarberContactCTA";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
+/* ── Sub-componente: card de corte com reveal próprio ──
+   Extraído para que cada card tenha seu próprio IntersectionObserver,
+   permitindo o efeito cascata individual igual à seção de Equipe. */
+function CutCard({ img, altTxt, goldLabel, title, desc, delayClass }) {
+  const ref = useScrollReveal({ threshold: 0.08 });
+  return (
+    <div ref={ref} className={`reveal ${delayClass}`}>
+      <Service fig={img} alt={altTxt}>
+        <span className="cut-tag">{goldLabel}</span>
+        <h3 className="cut-title">{title}</h3>
+        <p className="cut-desc">{desc}</p>
+      </Service>
+    </div>
+  );
+}
 
 export function SpacePage() {
+  // ── Seção 1: Página Hero ──
+  const refHeroTitle  = useScrollReveal({ threshold: 0.1 });
+  const refHeroDesc   = useScrollReveal({ threshold: 0.1 });
+  const refPhotoGrid  = useScrollReveal({ threshold: 0.05 });
+
+  // ── Seção 2: Detalhes do Espaço ──
+  const refDetailImg  = useScrollReveal({ threshold: 0.1 });
+  const refDetailText = useScrollReveal({ threshold: 0.1 });
+
+  // ── Seção 3: Cortes ──
+  const refCutsHeader    = useScrollReveal({ threshold: 0.1 });
+  const refPhilosophy    = useScrollReveal({ threshold: 0.1 });
+
   return (
     <>
       <div className="space-page-container">
 
-        {/* SEÇÃO 1: CABEÇALHO DA PÁGINA */}
+        {/* ══ SEÇÃO 1: CABEÇALHO DA PÁGINA ══ */}
         <section className="space-hero-section">
-          <SectionTitle label="Ambiente & Experiência">
-            Mais que uma barbearia, um <strong>refúgio</strong> para o seu tempo!
-          </SectionTitle>
 
-          <p className="space-hero-description">
+          {/* Título revela subindo */}
+          <div ref={refHeroTitle} className="reveal">
+            <SectionTitle label="Ambiente & Experiência">
+              Mais que uma barbearia, um <strong>refúgio</strong> para o seu tempo!
+            </SectionTitle>
+          </div>
+
+          {/* Descrição revela com delay */}
+          <p ref={refHeroDesc} className="space-hero-description reveal reveal--delay-1">
             Estruturada estrategicamente no coração de Campos dos Goytacazes para oferecer
             descompressão, sofisticação e cerca de dez bancadas e poltronas clássicas com áudio impecável.
           </p>
 
-          {/* Grid Superior de 3 fotos estilo banner */}
-          <div className="space-top-grid">
+          {/* Grid de fotos revela em bloco */}
+          <div ref={refPhotoGrid} className="space-top-grid reveal reveal--delay-2">
             <div className="top-grid-item">
               <img src="/game-space-2.webp" alt="Sala de Jogos" />
               <span className="grid-label">SALA DE JOGOS</span>
@@ -36,11 +71,14 @@ export function SpacePage() {
               <span className="grid-label">AMBIENTE CLIMATIZADO & ACÚSTICA EXCLUSIVA</span>
             </div>
           </div>
+
         </section>
 
-        {/* SEÇÃO 2: DETALHES DO ESPAÇO */}
+        {/* ══ SEÇÃO 2: DETALHES DO ESPAÇO ══ */}
         <section className="space-details-section">
-          <div className="details-image-container">
+
+          {/* Imagem entra pela esquerda */}
+          <div ref={refDetailImg} className="details-image-container reveal reveal--left">
             <img src="/corte-kids.webp" alt="Ambiente aconchegante da barbearia" />
             <div className="experience-badge">
               <span className="years-number">10</span>
@@ -48,7 +86,8 @@ export function SpacePage() {
             </div>
           </div>
 
-          <div className="details-content">
+          {/* Texto entra pela direita */}
+          <div ref={refDetailText} className="details-content reveal reveal--right">
             <SectionTitle label="Detalhes do Espaço">
               Conforto autêntico e atenção a <strong>cada detalhe</strong>!
             </SectionTitle>
@@ -78,11 +117,14 @@ export function SpacePage() {
               </div>
             </div>
           </div>
+
         </section>
 
-        {/* SEÇÃO 3: ALGUNS DOS NOSSOS CORTES */}
+        {/* ══ SEÇÃO 3: ALGUNS DOS NOSSOS CORTES ══ */}
         <section className="space-cuts-section">
-          <div className="cuts-header">
+
+          {/* Cabeçalho revela subindo */}
+          <div ref={refCutsHeader} className="cuts-header reveal">
             <div>
               <SectionTitle label="Nosso Trabalho">
                 Alguns Dos Nossos Cortes:
@@ -98,17 +140,22 @@ export function SpacePage() {
             </a>
           </div>
 
+          {/* Grid de cortes: cada card tem reveal próprio com cascata */}
           <div className="cuts-grid">
-            {cuts.map(({ img, altTxt, goldLabel, title, desc }) => (
-              <Service key={title} fig={img} alt={altTxt}>
-                <span className="cut-tag">{goldLabel}</span>
-                <h3 className="cut-title">{title}</h3>
-                <p className="cut-desc">{desc}</p>
-              </Service>
+            {cuts.map(({ img, altTxt, goldLabel, title, desc }, i) => (
+              <CutCard
+                key={title}
+                img={img}
+                altTxt={altTxt}
+                goldLabel={goldLabel}
+                title={title}
+                desc={desc}
+                delayClass={`reveal--delay-${(i % 3) + 1}`}
+              />
             ))}
 
-            {/* Card Filosofia / Destaque Institucional */}
-            <div className="philosophy-card">
+            {/* Card Filosofia com reveal próprio */}
+            <div ref={refPhilosophy} className="philosophy-card reveal reveal--delay-1">
               <span className="philosophy-icon">⚔</span>
               <span className="space-section-tagline">A FILOSOFIA ART NOBRE</span>
               <h3>Técnica personalizada para a identidade de cada homem.</h3>
@@ -122,11 +169,12 @@ export function SpacePage() {
               </div>
             </div>
           </div>
+
         </section>
 
       </div>
 
-      {/* SEÇÃO 4: CTA — reutiliza o mesmo componente da Home */}
+      {/* ══ SEÇÃO 4: CTA — componente reutilizado da Home ══ */}
       <BarberContactCTA />
     </>
   );
