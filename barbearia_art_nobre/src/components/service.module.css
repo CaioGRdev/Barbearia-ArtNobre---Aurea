@@ -1,19 +1,46 @@
 .workView {
-  background-color: var(--bg-dark);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
+  background-color: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
-  &>img {
-    width: 100%;
-    height: 1fr;
-    object-fit: cover;
-    object-position: center;
+  &:hover {
+    border-color: var(--gold-color);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.12);
   }
 
-  &>figcaption {
+  & > img {
     width: 100%;
-    height: 2fr;
-    padding: 20px;
-    font-size: 1.3rem;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover > img {
+    transform: scale(1.06);
+  }
+
+  & > figcaption {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 25px;
+    gap: 0;
+    font-size: 1rem;
+    /* Borda sutil dourada no topo do figcaption */
+    border-top: 2px solid rgba(212, 175, 55, 0.15);
+    transition: border-color 0.3s ease;
+  }
+
+  &:hover > figcaption {
+    border-top-color: rgba(212, 175, 55, 0.4);
   }
 }

@@ -1,12 +1,16 @@
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function BarberContactCTA() {
+  const refCta  = useScrollReveal({ threshold: 0.1 });
+  const refInfo = useScrollReveal({ threshold: 0.1 });
+
   return (
     <section className="contact-cta-section" id="contato">
       <div className="contact-container">
         
         {/* Chamada Principal */}
-        <div className="cta-content animar-aparecer">
+        <div ref={refCta} className="cta-content reveal">
           <span className="section-tagline">CONTACTE-NOS</span>
           <h2 className="cta-title">Pronto para o seu próximo corte?</h2>
           <p className="cta-description">
@@ -37,7 +41,7 @@ export function BarberContactCTA() {
         <div className="footer-divider"></div>
 
         {/* Informações de Endereço, Horário e Contato */}
-        <div className="footer-info-grid animar-aparecer">
+        <div ref={refInfo} className="footer-info-grid reveal">
           <div className="info-column">
             <span className="info-title">LOCALIZAÇÃO</span>
             <p className="info-text">

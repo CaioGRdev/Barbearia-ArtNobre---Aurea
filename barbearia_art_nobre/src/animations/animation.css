@@ -1,9 +1,73 @@
+/* ====================================================
+   SISTEMA DE ANIMAÇÕES DE SCROLL — Barbearia Art Nobre
+   
+   Como usar:
+   1. Adicione className="reveal" ao elemento
+   2. Use o hook useScrollReveal() e passe o ref retornado
+   3. Opcionalmente adicione reveal--delay-1, reveal--delay-2, etc.
+      para criar efeito cascata em grids.
+   ==================================================== */
+
+/* ── Estado inicial: invisível e levemente abaixo ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+  will-change: opacity, transform;
+}
+
+/* ── Estado final: visível, acionado pelo IntersectionObserver ── */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Variantes de delay para efeito cascata em grids ── */
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
+.reveal--delay-4 { transition-delay: 0.4s; }
+
+/* ── Variante de entrada pela esquerda ── */
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.reveal--left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Variante de entrada pela direita ── */
+.reveal--right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.reveal--right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ────────────────────────────────────────────
+   LEGADO: mantido para compatibilidade.
+   O .animar-aparecer agora só anima elementos
+   que estavam visíveis desde o início (ex: Hero).
+   ──────────────────────────────────────────── */
 @keyframes aparecer {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -11,5 +75,5 @@
 }
 
 .animar-aparecer {
-  animation: aparecer 0.6s ease-out forwards;
+  animation: aparecer 0.7s ease-out forwards;
 }

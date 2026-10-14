@@ -6,6 +6,7 @@
   color: var(--gold-color);
   text-transform: uppercase;
   font-weight: 600;
+  font-family: var(--font-body);
 }
 
 .title {
@@ -15,10 +16,11 @@
   margin-bottom: 25px;
   font-weight: 400;
   color: var(--white-text);
+  font-family: var(--font-heading);
 
-  &>strong {
+  & > strong {
     /* <strong> destaca texto nos títulos. */
-    font: italic normal normal normal 1em/1em 'Playfair Display', Georgia, serif;
+    font: italic normal normal normal 1em/1em var(--font-heading);
     color: var(--gold-color);
   }
 }

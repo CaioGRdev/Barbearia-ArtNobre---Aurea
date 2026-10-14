@@ -8,7 +8,7 @@ export function BarberFooter() {
         <figure className={style.barberFigure}>
           <img src="/logo-nobg.webp" alt="Logo da Barbearia" />
           <figcaption>
-            Há oito anos transformando estilos e criando laços com os nossos clientes.
+            Há dez anos transformando estilos e criando laços com os nossos clientes.
             Bem-vindos à nossa barbearia!
           </figcaption>
         </figure>

@@ -6,6 +6,7 @@ import img2 from '/chairs_barber.webp';
 import img3 from '/game-space.webp';
 
 import SectionTitle from './SectionTitle';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // Componente simples para animar o número subindo (MANTIDO INTACTO)
 function Counter({ end, duration = 2000, suffix = "" }) {
@@ -46,6 +47,10 @@ export function BarberAbout() {
   const images = [img1, img2, img3];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Refs de scroll reveal
+  const refCarousel = useScrollReveal({ threshold: 0.1 });
+  const refContent  = useScrollReveal({ threshold: 0.1 });
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -61,7 +66,7 @@ export function BarberAbout() {
       <div className="about-container">
         
         {/* Lado Esquerdo: Carrossel + Badge */}
-        <div className="about-image-wrapper animar-aparecer">
+        <div ref={refCarousel} className="about-image-wrapper reveal reveal--left">
           
           <div className="about-carousel-container">
             {images.map((img, index) => (
@@ -95,7 +100,7 @@ export function BarberAbout() {
         </div>
 
         {/* Lado Direito: Textos + Cards de Números (MANTIDO INTACTO) */}
-        <div className="about-content animate-slide-left animar-aparecer">
+        <div ref={refContent} className="about-content reveal reveal--right">
           <SectionTitle label="Sobre Nós">
             Uma barbearia construída com <strong>paixão e precisão</strong>!
           </SectionTitle>
@@ -147,4 +152,4 @@ export function BarberAbout() {
   );
 }
 
-export default BarberAbout;
+export default BarberAbout;

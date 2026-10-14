@@ -3,13 +3,17 @@ import { services } from '../data/homePage';
 
 import SectionTitle from './SectionTitle';
 import Service from './Service';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function BarberServices() {
+  const refHeader = useScrollReveal({ threshold: 0.1 });
+  const refGrid   = useScrollReveal({ threshold: 0.05 });
+
   return (
     <section className="services-section" id="precos">
       <div className="services-container">
         
-        <div className="services-header">
+        <div ref={refHeader} className="services-header reveal">
           <div>
             <SectionTitle label="Os Nossos Serviços">
               O Que Nós Fazemos?
@@ -21,7 +25,7 @@ export function BarberServices() {
           </Link>
         </div>
 
-        <div className="services-grid">
+        <div ref={refGrid} className="services-grid reveal">
           {services.map(({title, desc, price, image}) => (
             <Service key={title} fig={image} altTxt={title}>
               <h3 className="service-title">{title}</h3>
