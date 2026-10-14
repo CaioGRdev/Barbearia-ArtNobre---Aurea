@@ -36,9 +36,7 @@ export function BarberTeam() {
           <div>
             <SectionTitle label="A Nossa Equipe">Os Barbeiros:</SectionTitle>
           </div>
-          <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="btn-secondary">
-            VER EQUIPE COMPLETA &rarr;
-          </a>
+         
         </div>
 
         {/* Grid de Cards da Equipe — cada card anima individualmente */}

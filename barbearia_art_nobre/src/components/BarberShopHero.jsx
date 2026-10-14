@@ -29,7 +29,7 @@ export function BarberShopHero() {
         </p>
 
         <div className="hero-buttons">
-          <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="btn-primary">
+          <a href="https://api.whatsapp.com/send/?phone=5522998099294&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="btn-primary">
             <FaWhatsapp /> MARCAR CONSULTA
           </a>
           <a href="#precos" className="btn-secondary">

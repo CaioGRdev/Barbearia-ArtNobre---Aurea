@@ -146,7 +146,7 @@ export function BarberTestimonials() {
         {/* CTA para ver mais */}
         <div className="testimonials-cta">
           <a
-            href="https://g.co/kgs/SEU_LINK_GOOGLE" /* Substitua pelo link real do Google */
+            href="https://www.google.com/search?kgmid=/g/11vdjqtpvp&hl=pt-BR&q=Barbearia+Art+Nobre&shem=epsd1,esd2e,ltae,rimspwouoe,sdpie&shndl=30&source=sh/x/loc/osrp/m5/1&kgs=a703c1f5deb6c9f6&utm_source=epsd1,esd2e,ltae,rimspwouoe,sdpie,sh/x/loc/osrp/m5/1#lrd=0xbdd59c01029241:0x710d3a517dce4888,1,,,," /* Substitua pelo link real do Google */
             target="_blank"
             rel="noreferrer"
             className="btn-secondary"
