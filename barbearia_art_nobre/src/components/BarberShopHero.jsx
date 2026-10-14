@@ -1,4 +1,5 @@
 import { FaWhatsapp } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useParallax } from '../hooks/useParallax';
 
 export function BarberShopHero() {
@@ -30,11 +31,11 @@ export function BarberShopHero() {
 
         <div className="hero-buttons">
           <a href="https://api.whatsapp.com/send/?phone=5522998099294&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="btn-primary">
-            <FaWhatsapp /> MARCAR CONSULTA
+            <FaWhatsapp /> MARCAR CORTE
           </a>
-          <a href="#precos" className="btn-secondary">
+          <Link to="/precos" className="btn-secondary">
             VER PREÇOS
-          </a>
+          </Link>
         </div>
       </div>
 
