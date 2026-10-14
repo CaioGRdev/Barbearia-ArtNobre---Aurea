@@ -3,7 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 export function BarberShopHero() {
   return (
     <section className="hero-section" id="inicio">
-      <div className="hero-content">
+      <div className="hero-content animar-aparecer">
         <span className="hero-tagline">BARBEARIA PREMIUM • DESDE 2016</span>
         
         <h1 className="hero-title">
@@ -24,10 +24,11 @@ export function BarberShopHero() {
           </a>
         </div>
 
-        <div className="scroll-indicator">
-          <span>DESÇA E CONHEÇA</span>
-          <div className="scroll-line"></div>
-        </div>
+      </div>
+
+      <div className="scroll-indicator">
+        <span>DESÇA E CONHEÇA</span>
+        <div className="scroll-line"></div>
       </div>
     </section>
   );

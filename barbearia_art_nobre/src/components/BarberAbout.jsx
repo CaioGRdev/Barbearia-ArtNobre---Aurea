@@ -61,7 +61,7 @@ export function BarberAbout() {
       <div className="about-container">
         
         {/* Lado Esquerdo: Carrossel + Badge */}
-        <div className="about-image-wrapper">
+        <div className="about-image-wrapper animar-aparecer">
           
           <div className="about-carousel-container">
             {images.map((img, index) => (
@@ -95,7 +95,7 @@ export function BarberAbout() {
         </div>
 
         {/* Lado Direito: Textos + Cards de Números (MANTIDO INTACTO) */}
-        <div className="about-content animate-slide-left">
+        <div className="about-content animate-slide-left animar-aparecer">
           <SectionTitle label="Sobre Nós">
             Uma barbearia construída com <strong>paixão e precisão</strong>!
           </SectionTitle>

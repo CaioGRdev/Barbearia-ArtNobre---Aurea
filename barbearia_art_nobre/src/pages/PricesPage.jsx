@@ -9,7 +9,7 @@ export function PricesPage() {
   return (
     <div className="full-prices-page">
       <div className="services-header-bg">
-        <div className="services-header-overlay">
+        <div className="services-header-overlay animar-aparecer">
           <span className="services-tagline">BARBEARIA ART NOBRE</span>
           <h1 className="services-title">Preços & Serviços</h1>
           <p className="services-subtitle">

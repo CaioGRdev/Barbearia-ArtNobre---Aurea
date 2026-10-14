@@ -6,7 +6,7 @@ export function BarberContactCTA() {
       <div className="contact-container">
         
         {/* Chamada Principal */}
-        <div className="cta-content">
+        <div className="cta-content animar-aparecer">
           <span className="section-tagline">CONTACTE-NOS</span>
           <h2 className="cta-title">Pronto para o seu próximo corte?</h2>
           <p className="cta-description">
@@ -37,7 +37,7 @@ export function BarberContactCTA() {
         <div className="footer-divider"></div>
 
         {/* Informações de Endereço, Horário e Contato */}
-        <div className="footer-info-grid">
+        <div className="footer-info-grid animar-aparecer">
           <div className="info-column">
             <span className="info-title">LOCALIZAÇÃO</span>
             <p className="info-text">

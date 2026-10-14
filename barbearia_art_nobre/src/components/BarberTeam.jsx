@@ -41,7 +41,7 @@ export function BarberTeam() {
         {/* Grid de Cards da Equipe */}
         <div className="team-grid">
           {team.map((barber) => (
-            <div className="team-card" key={barber.id}>
+            <div className="team-card animar-aparecer" key={barber.id}>
               <div className="team-img-wrapper">
                 <img src={barber.image} alt={barber.name} className="team-img" />
               </div>
