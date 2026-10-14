@@ -1,0 +1,28 @@
+.linkBox {
+  --main-color: hsla(0deg, 0%, 100%, 0.4);
+  color: var(--main-color);
+
+  display: flex;
+  gap: 10px;
+
+  &>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 2px;
+
+    transition-property: border-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+
+    &:hover {
+      color: var(--gold-color);
+      border-color: var(--gold-color);
+    }
+  }
+}

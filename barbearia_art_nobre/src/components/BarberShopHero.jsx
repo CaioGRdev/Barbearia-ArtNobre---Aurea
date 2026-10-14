@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export function BarberShopHero() {
@@ -26,7 +25,7 @@ export function BarberShopHero() {
         </div>
 
         <div className="scroll-indicator">
-          <span>SCROLL</span>
+          <span>DESÇA E CONHEÇA</span>
           <div className="scroll-line"></div>
         </div>
       </div>

@@ -1,0 +1,135 @@
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Compensando a invasão da barra de rolagem */
+  width: calc(100% - 12px);
+  /* Garante que o header fique sobre a hero */
+  z-index: 2;
+
+  &>address {
+    font-size: 0.7rem;
+    text-align: center;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 6px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  &>section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 5vw;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent);
+  }
+}
+
+.mainLogoBox {
+  display: grid;
+  grid-template-areas: 'logo .' 'logo .';
+  column-gap: 6px;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  &>img {
+    height: 38px;
+    width: auto;
+    grid-area: logo;
+  }
+
+  &>span {
+    font-size: 0.6rem;
+  }
+
+  &>strong {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+  color: var(--text-muted);
+
+  &>a {
+    position: relative;
+
+    &::after {
+      content: '';
+      opacity: 0;
+
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--gold-color);
+
+      position: absolute;
+      top: 100%;
+      transform: translateY(-200%);
+
+      transition-property: transform, opacity;
+      transition-duration: 100ms;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(200%);
+    }
+  }
+}
+
+.socialIconsBox {
+  --main-color: hsla(0deg, 0%, 100%, 0.4);
+  color: var(--main-color);
+
+  display: flex;
+  gap: 10px;
+
+  &>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--main-color);
+    border-radius: 2px;
+
+    transition-property: border-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+
+    &:hover {
+      --main-color: var(--gold-color);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .root {
+    width: 100%;
+
+    &>section {
+      justify-content: center;
+    }
+  }
+
+  .mainLogoBox,
+  .socialIconsBox {
+    all: initial;
+    display: none;
+  }
+}

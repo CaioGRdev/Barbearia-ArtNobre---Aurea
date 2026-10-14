@@ -1,8 +1,6 @@
-import React from 'react';
 // Substitua pelas fotos reais dos barbeiros na pasta assets
-import barber1 from '../assets/hero-bg.webp'; 
-import barber2 from '../assets/hero-bg.webp';
-import barber3 from '../assets/hero-bg.webp';
+
+import SectionTitle from "./SectionTitle";
 
 export function BarberTeam() {
   const team = [
@@ -10,19 +8,19 @@ export function BarberTeam() {
       id: 1,
       name: 'Jesus Riter',
       role: 'Dono',
-      image: barber1,
+      image: "/hero-bg.webp",
     },
     {
       id: 2,
       name: 'Greyson',
       role: 'Barbeiro',
-      image: barber2,
+      image: "/hero-bg.webp",
     },
     {
       id: 3,
       name: 'Fernando',
       role: 'Barbeiro',
-      image: barber3,
+      image: "/hero-bg.webp",
     },
   ];
 
@@ -33,8 +31,7 @@ export function BarberTeam() {
         {/* Cabeçalho da Seção */}
         <div className="team-header">
           <div>
-            <span className="section-tagline">A NOSSA EQUIPE</span>
-            <h2 className="section-title">Os Barbeiros</h2>
+            <SectionTitle label="A Nossa Equipe">Os Barbeiros:</SectionTitle>
           </div>
           <a href="https://wa.me/5522998099294" target="_blank" rel="noreferrer" className="btn-secondary">
             VER EQUIPE COMPLETA &rarr;
